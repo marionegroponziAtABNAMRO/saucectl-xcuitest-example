@@ -71,21 +71,6 @@ xcodebuild \
   -derivedDataPath build
 ```
 
-When running on Apple Silicon one must build for x86_64 simulators since Sauce Labs only supports x86_64 Simulators
-
-```shell
-cd DemoApp
-
-xcodebuild -arch x86_64 \
-  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
-  clean build-for-testing \
-  -project DemoApp.xcodeproj \
-  -scheme "DemoApp" \
-  -sdk iphonesimulator \
-  -configuration Debug \
-  -derivedDataPath build
-```
-
 ### Build and Test `DemoApp` for Simulator locally
 
 ```shell
@@ -100,6 +85,23 @@ xcodebuild \
   -derivedDataPath build \
   -destination 'platform=iOS Simulator,OS=17.4,name=iPhone 15'
 
+```
+
+### Build `DemoApp` for Sauce Cloud Simulator
+
+When running on Apple Silicon one must build for x86_64 simulators since Sauce Cloud only supports x86_64 Simulators
+
+```shell
+cd DemoApp
+
+xcodebuild -arch x86_64 \
+  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
+  clean build-for-testing \
+  -project DemoApp.xcodeproj \
+  -scheme "DemoApp" \
+  -sdk iphonesimulator \
+  -configuration Debug \
+  -derivedDataPath build
 ```
 
 ### Run XCUITest on Sauce Cloud Simulator
