@@ -71,7 +71,23 @@ xcodebuild \
   -derivedDataPath build
 ```
 
+When running on Apple Silicon one must build for x86_64 simulators since Sauce Labs only supports x86_64 Simulators
+
+```shell
+cd DemoApp
+
+xcodebuild -arch x86_64 \
+  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
+  clean build-for-testing \
+  -project DemoApp.xcodeproj \
+  -scheme "DemoApp" \
+  -sdk iphonesimulator \
+  -configuration Debug \
+  -derivedDataPath build
+```
+
 ### Build and Test `DemoApp` for Simulator locally
+
 ```shell
 cd DemoApp
 
