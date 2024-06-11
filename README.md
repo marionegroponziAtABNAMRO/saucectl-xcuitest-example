@@ -31,6 +31,7 @@ Simply check out this repo, set your XCUITest test bundles and run the appropria
 
 To download prebuilt demo apps that run on real devices, run "sh ./scripts/download-test-apps.sh" and the apps will be downloaded to a directory called "demo-apps/".
 
+
 ### Build `DemoApp` for Real Device
 
 ```shell
@@ -69,6 +70,23 @@ xcodebuild \
   -configuration Debug \
   -derivedDataPath build
 ```
+
+### Build and Test `DemoApp` for Simulator locally
+```shell
+cd DemoApp
+
+xcodebuild \
+  CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO \
+  clean build-for-testing test \
+  -project DemoApp.xcodeproj \
+  -scheme "DemoApp" \
+  -configuration Debug \
+  -derivedDataPath build \
+  -destination 'platform=iOS Simulator,OS=17.4,name=iPhone 15'
+
+```
+
+
 ### Run XCUITest on Sauce Cloud Simulator
 
 ```shell
