@@ -30,4 +30,8 @@ final class DemoAppUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         XCTAssert(app.staticTexts["Hello, world!"].exists)
     }
+    
+    func testSkip() throws {
+        //throw XCTSkip("I do not like this test")
+    }
 }

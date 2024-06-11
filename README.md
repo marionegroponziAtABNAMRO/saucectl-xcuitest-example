@@ -86,7 +86,6 @@ xcodebuild \
 
 ```
 
-
 ### Run XCUITest on Sauce Cloud Simulator
 
 ```shell
