@@ -32,6 +32,6 @@ final class DemoAppUITests: XCTestCase {
     }
     
     func testSkip() throws {
-        //throw XCTSkip("I do not like this test")
+        throw XCTSkip("I do not like this test")
     }
 }
